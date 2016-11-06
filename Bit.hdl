@@ -14,7 +14,8 @@ CHIP Bit {
     OUT out;
 
     PARTS:
+    // the Mux chip select in the input the DFF based on the load input for either read or write
     Mux(a= afterDFF,b = in,sel=load, out= afterMux);
+    // the DFF return his output as an internal pin and as a output
     DFF(in= afterMux, out= afterDFF, out=out);
-    //DMux(in= afterDFF, sel=load, a=afterDMux, b= out );
 }
