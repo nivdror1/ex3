@@ -9,6 +9,7 @@ CHIP Register4Bit {
     OUT out[4];
 
     PARTS:
+    // an implementation of 4- bit register
     Bit( in= in[0], load= load, out= out[0]);
     Bit( in= in[1], load= load, out= out[1]);
     Bit( in= in[2], load= load, out= out[2]);

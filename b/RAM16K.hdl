@@ -15,9 +15,14 @@ CHIP RAM16K {
     OUT out[16];
 
     PARTS:
+
+    // the DMux4way select the RAM4K by his address and assign the load input to RAM4K input.
     DMux4Way( in = load, sel = address[12..13], a = load0, b = load1, c = load2, d = load3);
+
+    // select of output that came from the chosen RAM4K by his address.
     Mux4Way16( a = out0, b = out1, c = out2, d = out3, sel = address[12..13], out = out);
 
+    // the 4 RAM4K
     RAM4K(in= in, load=load0, address = address[0..11],  out=out0);
     RAM4K(in= in, load=load1, address = address[0..11],  out=out1);
     RAM4K(in= in, load=load2, address = address[0..11],  out=out2);
